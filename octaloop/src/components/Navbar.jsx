@@ -34,7 +34,7 @@ const Navbar = () => {
         <button className="py-2 px-4 rounded-xl bg-[#f5df4d] text-[#1a1a1a] font-bold">
           Sign Up Free
         </button>
-        <button className="py-2 px-4 rounded-xl bg-[#f5df4d] text-[#1a1a1a] flex items-center font-bold">
+        <button className="py-2 px-4 space-x-2 rounded-xl bg-[#f5df4d] text-[#1a1a1a] flex items-center font-bold">
           <span>Login</span>
           <IoMdArrowForward />
         </button>

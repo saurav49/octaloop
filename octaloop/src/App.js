@@ -1,11 +1,16 @@
 import "./App.css";
-import { Navbar } from "./components/index";
+import { Navbar, Signup } from "./components/index";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-[#1a1a1a] w-screen min-h-screen">
       <Navbar />
-      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
+      <div className="flex items-end justify-end">
+        <div>
+          <Signup />
+        </div>
+        {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
+      </div>
     </div>
   );
 }
