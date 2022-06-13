@@ -9,7 +9,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <aside className="flex flex-col items-center space-y-8 py-8 px-5 bg-[#ffffff] shadow-sm h-screen">
+    <aside className="flex flex-col items-center space-y-8 py-8 px-5 bg-[#ffffff] shadow-sm min-h-screen">
       <div className="bg-[#1a1a1a] rounded-full py-1 px-3">
         <p className="text-[#f5da4d] font-semibold text-4xl">B</p>
       </div>
