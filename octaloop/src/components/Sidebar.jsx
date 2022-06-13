@@ -5,6 +5,7 @@ import {
   MdPayment,
   CgProfile,
   GrSettingsOption,
+  RiLogoutBoxRLine,
 } from "../Icons/Icons";
 
 const Sidebar = () => {
@@ -14,22 +15,27 @@ const Sidebar = () => {
         <p className="text-[#f5da4d] font-semibold text-4xl">B</p>
       </div>
 
-      <div className="space-y-7 flex flex-col items-center">
-        <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
-          <MdSpaceDashboard className="w-[24.75px] h-[31.5px]" />
+      <div className="flex flex-col items-center justify-between h-[70%]">
+        <div className="space-y-12 flex flex-col items-center">
+          <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
+            <MdSpaceDashboard className="w-[24.75px] h-[31.5px]" />
+          </div>
+          <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
+            <FaFileInvoice className="w-[24.75px] h-[31.5px]" />
+          </div>
+          <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
+            <MdPayment className="w-[24.75px] h-[31.5px]" />
+          </div>
+          <div className="border-2 border-[#f5f5f5] py-1 px-2 bg-[#f5df4d] rounded-lg">
+            <CgProfile className="w-[24.75px] h-[31.5px]" />
+          </div>
+          <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
+            <GrSettingsOption className="w-[24.75px] h-[31.5px]" />
+          </div>
         </div>
-        <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
-          <FaFileInvoice className="w-[24.75px] h-[31.5px]" />
+        <div className="border-2 border-[#f5f5f5] bg-[#574AE2] py-1 px-2 rounded-lg">
+          <RiLogoutBoxRLine className="w-[24.75px] h-[31.5px] text-white" />
         </div>
-        <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
-          <MdPayment className="w-[24.75px] h-[31.5px]" />
-        </div>
-        <div className="border-2 border-[#f5f5f5] py-1 px-2 bg-[#f5df4d] rounded-lg">
-          <CgProfile className="w-[24.75px] h-[31.5px]" />
-        </div>
-      </div>
-      <div className="border-2 border-[#f5f5f5] py-1 px-2 rounded-lg">
-        <GrSettingsOption className="w-[24.75px] h-[31.5px]" />
       </div>
     </aside>
   );

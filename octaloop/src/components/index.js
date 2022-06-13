@@ -7,6 +7,7 @@ import { TaxCard } from "./TaxCard";
 import { AddressCard } from "./AddressCard";
 import { GstCard } from "./GstCard";
 import { OtherInfoCard } from "./OtherInfoCard";
+import { ProfileDetails } from "./ProfileDetails";
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   AddressCard,
   GstCard,
   OtherInfoCard,
+  ProfileDetails,
 };

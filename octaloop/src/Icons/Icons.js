@@ -1,6 +1,6 @@
 import { AiOutlineInstagram, AiOutlineGoogle } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { BsFacebook, BsArrowLeftShort } from "react-icons/bs";
+import { RiArrowDownSLine, RiLogoutBoxRLine } from "react-icons/ri";
 import { IoMdArrowForward } from "react-icons/io";
 import { FaLock, FaFileInvoice } from "react-icons/fa";
 import {
@@ -26,4 +26,6 @@ export {
   CgProfile,
   GrSettingsOption,
   TbEdit,
+  RiLogoutBoxRLine,
+  BsArrowLeftShort,
 };

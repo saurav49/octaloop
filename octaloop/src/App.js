@@ -20,7 +20,7 @@ function App() {
             </>
           }
         />
-        <Route path="/profile" element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
