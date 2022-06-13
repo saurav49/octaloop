@@ -8,7 +8,7 @@ const ProfileDetails = () => {
   const [phone, setPhone] = useState("");
 
   return (
-    <div className="z-50 absolute right-0 p-8 flex flex-col items-start min-h-screen bg-white w-[90%] sm:w-[80%] md:w-[600px] shadow-md">
+    <div className="z-50 absolute right-0 p-8 flex flex-col items-start min-h-screen bg-white w-[90%] sm:w-[80%] md:w-[450px] shadow-md">
       <div className="w-[80%]">
         <h3 className="font-semibold text-2xl text-[#1a1a1a] mb-3">
           Personal Details
@@ -95,7 +95,7 @@ const ProfileDetails = () => {
           </div>
         </div>
         <hr className="text-[#f5f5f5] my-6" />
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 flex-wrap space-y-2 sm:space-y-0">
           <button className="rounded-3xl flex items-center space-x-2 py-4 px-6 bg-[#1a1a1a] text-white font-semibold">
             <BsArrowLeftShort className="font-xl" />
             <span>Update Details</span>
