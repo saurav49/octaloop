@@ -1,4 +1,8 @@
-import { AiOutlineInstagram, AiOutlineGoogle } from "react-icons/ai";
+import {
+  AiOutlineInstagram,
+  AiOutlineGoogle,
+  AiOutlinePlus,
+} from "react-icons/ai";
 import { BsFacebook, BsArrowLeftShort } from "react-icons/bs";
 import { RiArrowDownSLine, RiLogoutBoxRLine } from "react-icons/ri";
 import { IoMdArrowForward } from "react-icons/io";
@@ -28,4 +32,5 @@ export {
   TbEdit,
   RiLogoutBoxRLine,
   BsArrowLeftShort,
+  AiOutlinePlus,
 };

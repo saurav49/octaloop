@@ -1,13 +1,26 @@
 import { createContext, useState } from "react";
 import axios from "axios";
-import { SIGN_IN, LOG_OUT, UPDATE_PROFILE } from "../urls";
+import { SIGN_IN, LOG_OUT, UPDATE_PROFILE, GET_USER } from "../urls";
+import { useEffect } from "react";
+import { useRefreshToken } from "../hooks/useRefreshToken";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const refresh = useRefreshToken();
+
+  useEffect(() => {
+    let time = 30 * 1000;
+    let interval = setInterval(() => {
+      refresh();
+    }, time);
+
+    return () => clearInterval(interval);
+  }, [refresh]);
+
   const [role, setRole] = useState("");
   const [userInfo, setUserInfo] = useState({});
-
+  const [showEditSidebar, setShowEditSidebar] = useState(false);
   const handleSignup = async (email, password) => {
     try {
       const response = await axios.post(
@@ -37,8 +50,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const updateUserData = async (address, email, username, pincode) => {
-    console.log({ address, email, username, pincode });
+  const updateUserData = async (
+    address,
+    email,
+    username,
+    zipcode,
+    state,
+    city,
+    country
+  ) => {
     try {
       const response = await axios.post(
         UPDATE_PROFILE,
@@ -46,11 +66,25 @@ export const AuthProvider = ({ children }) => {
           email,
           name: username,
           address,
-          zipCode: pincode,
+          zipCode: zipcode,
+          state,
+          city,
+          country,
         },
         { withCredentials: true }
       );
-      console.log({ response });
+      setUserInfo(response.data.result);
+    } catch (err) {
+      console.log({ err });
+    }
+  };
+
+  const getUserInfo = async () => {
+    try {
+      const response = await axios.get(GET_USER, {
+        withCredentials: true,
+      });
+      setUserInfo(response?.data?.data);
     } catch (err) {
       console.log({ err });
     }
@@ -66,6 +100,9 @@ export const AuthProvider = ({ children }) => {
         userInfo,
         setUserInfo,
         updateUserData,
+        showEditSidebar,
+        setShowEditSidebar,
+        getUserInfo,
       }}
     >
       {children}

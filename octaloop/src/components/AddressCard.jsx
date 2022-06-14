@@ -2,14 +2,7 @@ import { TbEdit } from "../Icons/Icons";
 import { useAuth } from "../hooks/useAuth";
 
 const AddressCard = () => {
-  let { userInfo, setUserInfo } = useAuth();
-  if (
-    userInfo &&
-    !userInfo.hasOwnProperty("_id") &&
-    !localStorage.getItem("userInfo__octaloop")
-  ) {
-    setUserInfo(JSON.parse(localStorage.getItem("userInfo__octaloop")));
-  }
+  let { userInfo } = useAuth();
 
   return (
     <div className="p-8 flex flex-col items-start bg-white rounded-2xl w-[90%] sm:w-[80%] md:w-[600px] space-y-6 shadow-md">
@@ -35,9 +28,15 @@ const AddressCard = () => {
           primary
         </p>
         <p className="text-lg font-normal text-[#1a1a1a]">
-          {`${userInfo?.address}, ${userInfo?.city}, ${userInfo?.state}, ${userInfo?.country}, ${userInfo?.zipCode}` ||
-            `A-83, Second Floor, Pocket D, Okhla Phase II, Okhla Industrial Estate,
-          New Delhi, Delhi 110020`}
+          <span className="mr-2">
+            {`${userInfo?.address}` ||
+              "A-83, Second Floor, Pocket D, Okhla Phase II, Okhla Industrial Estate"}
+          </span>
+          <span className="mr-2">
+            {`${userInfo?.city}` || "New Delhi"} {`${userInfo?.state}`}
+          </span>
+          <span className="mr-2">{`${userInfo?.country}` || "India"}</span>
+          <span className="ml-2">{`${userInfo?.zipCode}` || 110020}</span>
         </p>
       </div>
     </div>

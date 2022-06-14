@@ -2,14 +2,7 @@ import { TbEdit } from "../Icons/Icons";
 import avatarImg from "../assets/alex-suprun-ZHvM3XIOHoE-unsplash.jpg";
 import { useAuth } from "../hooks/useAuth";
 const ProfileCard = () => {
-  let { userInfo, setUserInfo } = useAuth();
-  if (
-    userInfo &&
-    !userInfo.hasOwnProperty("_id") &&
-    !localStorage.getItem("userInfo__octaloop")
-  ) {
-    setUserInfo(JSON.parse(localStorage.getItem("userInfo__octaloop")));
-  }
+  let { userInfo } = useAuth();
 
   return (
     <div className="p-8 flex flex-col items-center bg-white rounded-2xl w-[90%] sm:w-[80%] md:w-[600px] space-y-6 shadow-md">
