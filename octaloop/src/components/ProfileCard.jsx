@@ -1,7 +1,16 @@
 import { TbEdit } from "../Icons/Icons";
 import avatarImg from "../assets/alex-suprun-ZHvM3XIOHoE-unsplash.jpg";
-
+import { useAuth } from "../hooks/useAuth";
 const ProfileCard = () => {
+  let { userInfo, setUserInfo } = useAuth();
+  if (
+    userInfo &&
+    !userInfo.hasOwnProperty("_id") &&
+    !localStorage.getItem("userInfo__octaloop")
+  ) {
+    setUserInfo(JSON.parse(localStorage.getItem("userInfo__octaloop")));
+  }
+
   return (
     <div className="p-8 flex flex-col items-center bg-white rounded-2xl w-[90%] sm:w-[80%] md:w-[600px] space-y-6 shadow-md">
       <div className="flex flex-col items-start space-y-2 sm:space-y-0 sm:flex-row sm:items-center justify-between w-full">
@@ -24,27 +33,33 @@ const ProfileCard = () => {
             <p className="text-xs uppercase text-[#97999B] font-semibold">
               full name
             </p>
-            <p className="text-lg font-normal text-[#1a1a1a]">Saurav Biswas</p>
+            <p className="text-lg font-normal text-[#1a1a1a]">
+              {userInfo?.name || "Nikhil Bhintade"}
+            </p>
           </div>
           <div>
             <p className="text-xs uppercase text-[#97999B] font-semibold">
               username
             </p>
-            <p className="text-lg font-normal text-[#1a1a1a]">biswas.saurav</p>
+            <p className="text-lg font-normal text-[#1a1a1a]">
+              {userInfo?.name || "bhintade.nikhil"}
+            </p>
           </div>
           <div>
             <p className="text-xs uppercase text-[#97999B] font-semibold">
               email address
             </p>
             <p className="text-lg font-normal text-[#1a1a1a]">
-              saurav@gmail.com
+              {userInfo?.email || "nikhilbhintade@octaloop.com"}
             </p>
           </div>
           <div>
             <p className="text-xs uppercase text-[#97999B] font-semibold">
               phone number
             </p>
-            <p className="text-lg font-normal text-[#1a1a1a]">6771124336</p>
+            <p className="text-lg font-normal text-[#1a1a1a]">
+              {userInfo?.phone || "+9194*****435"}
+            </p>
           </div>
           <div>
             <p className="text-xs uppercase text-[#97999B] font-semibold mb-4">

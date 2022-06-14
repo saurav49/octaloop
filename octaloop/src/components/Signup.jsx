@@ -4,6 +4,8 @@ import {
   FaLock,
   MdOutlineAlternateEmail,
 } from "../Icons/Icons";
+import { useAuth } from "../hooks/useAuth";
+import { validateEmail, validatePassword } from "../utils";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +14,34 @@ const Signup = () => {
     emailErr: "",
     passErr: "",
   });
+  const { handleSignup } = useAuth();
+
+  const hash = async (string) => {
+    const utf8 = new TextEncoder().encode(string);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", utf8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map((bytes) => bytes.toString(16).padStart(2, "0"))
+      .join("");
+    return hashHex;
+  };
+
+  const handleUserCredentails = async (email, password) => {
+    // if (!validateEmail(email)) {
+    //   setError((prevState) => ({
+    //     ...prevState,
+    //     emailErr: "An email address must contain a single @",
+    //   }));
+    //   return;
+    // }
+    // if (!validatePassword(password)) {
+    //   setError((prevState) => ({ ...prevState, passErr: "invalid password" }));
+    //   return;
+    // }
+    setError({ emailErr: "", passErr: "" });
+    const hashPass = await hash(password);
+    handleSignup(email, hashPass);
+  };
 
   return (
     <div className="w-[80%] mx-auto mt-5 sm:mt-10 sm:mr-32 sm:w-[450px] bg-[#ffffff] p-10 flex flex-col items-start rounded-lg">
@@ -88,6 +118,7 @@ const Signup = () => {
         <button
           className="w-full flex items-center justify-center space-x-3 rounded-2xl text-[#1a1a1a]
         border-2 border-[#e5e5e5] py-4 px-2.5 font-semibold"
+          onClick={() => handleUserCredentails(email, password)}
         >
           <AiOutlineGoogle className="text-lg" />
           <span>Sign Up with Goggle</span>

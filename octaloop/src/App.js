@@ -8,7 +8,7 @@ function App() {
     <div className="bg-[#1a1a1a] w-screen min-h-screen">
       <Routes>
         <Route
-          path="/signup"
+          path="/signin"
           element={
             <>
               <Navbar />
