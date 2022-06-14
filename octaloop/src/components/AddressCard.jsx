@@ -27,17 +27,21 @@ const AddressCard = () => {
         <p className="text-xs uppercase text-[#97999B] font-semibold">
           primary
         </p>
-        <p className="text-lg font-normal text-[#1a1a1a]">
-          <span className="mr-2">
-            {`${userInfo?.address}` ||
-              "A-83, Second Floor, Pocket D, Okhla Phase II, Okhla Industrial Estate"}
-          </span>
-          <span className="mr-2">
-            {`${userInfo?.city}` || "New Delhi"} {`${userInfo?.state}`}
-          </span>
-          <span className="mr-2">{`${userInfo?.country}` || "India"}</span>
-          <span className="ml-2">{`${userInfo?.zipCode}` || 110020}</span>
-        </p>
+        {userInfo && userInfo.hasOwnProperty("address") ? (
+          <p className="text-lg font-normal text-[#1a1a1a]">
+            <span className="mr-2">{`${userInfo?.address}`}</span>
+            <span className="mr-2">
+              {`${userInfo?.city}`} {`${userInfo?.state}`}
+            </span>
+            <span className="mr-2">{`${userInfo?.country}`}</span>
+            <span className="ml-2">{`${userInfo?.zipCode}`}</span>
+          </p>
+        ) : (
+          <p className="text-lg font-normal text-[#1a1a1a]">
+            A-83, Second Floor, Pocket D, Okhla Phase II, Okhla Industrial
+            Estate New Delhi India 110020
+          </p>
+        )}
       </div>
     </div>
   );

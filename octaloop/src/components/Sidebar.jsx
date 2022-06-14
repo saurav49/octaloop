@@ -9,7 +9,7 @@ import {
 } from "../Icons/Icons";
 
 const Sidebar = () => {
-  const { setShowEditSidebar, showEditSidebar } = useAuth();
+  const { setShowEditSidebar, showEditSidebar, handleLogout } = useAuth();
 
   return (
     <aside className="flex flex-col items-center space-y-8 py-8 px-5 bg-[#ffffff] shadow-sm min-h-screen">
@@ -40,7 +40,10 @@ const Sidebar = () => {
             <GrSettingsOption className="w-[24.75px] h-[31.5px]" />
           </div>
         </div>
-        <div className="border-2 border-[#f5f5f5] bg-[#574AE2] py-1 px-2 rounded-lg cursor-pointer hover:bg-white hover:border-2 transition-all duration-300 hover:border-[#574AE2] hover:text-black">
+        <div
+          onClick={handleLogout}
+          className="border-2 border-[#f5f5f5] bg-[#574AE2] py-1 px-2 rounded-lg cursor-pointer hover:bg-white hover:border-2 transition-all duration-300 hover:border-[#574AE2] hover:text-black"
+        >
           <RiLogoutBoxRLine className="w-[24.75px] h-[31.5px] text-white hover:text-black" />
         </div>
       </div>

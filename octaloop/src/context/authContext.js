@@ -1,26 +1,14 @@
 import { createContext, useState } from "react";
 import axios from "axios";
 import { SIGN_IN, LOG_OUT, UPDATE_PROFILE, GET_USER } from "../urls";
-import { useEffect } from "react";
-import { useRefreshToken } from "../hooks/useRefreshToken";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const refresh = useRefreshToken();
-
-  useEffect(() => {
-    let time = 30 * 1000;
-    let interval = setInterval(() => {
-      refresh();
-    }, time);
-
-    return () => clearInterval(interval);
-  }, [refresh]);
-
   const [role, setRole] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const [showEditSidebar, setShowEditSidebar] = useState(false);
+
   const handleSignup = async (email, password) => {
     try {
       const response = await axios.post(
@@ -31,9 +19,11 @@ export const AuthProvider = ({ children }) => {
         },
         { withCredentials: true }
       );
-      console.log(response.headers["accessToken"], response, document.cookie);
-      //   Cookies.set("access-token", response.headers["accessToken"]);
       setRole(response?.data?.role);
+      localStorage.setItem(
+        "octaloop__role",
+        JSON.stringify(response?.data?.role)
+      );
     } catch (err) {
       console.log({ err });
     }
@@ -41,9 +31,13 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post(LOG_OUT, {
-        // cookies,
-      });
+      const response = await axios.post(
+        LOG_OUT,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
       console.log({ response });
     } catch (err) {
       console.log({ err });

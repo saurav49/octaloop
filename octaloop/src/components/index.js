@@ -8,6 +8,7 @@ import { AddressCard } from "./AddressCard";
 import { GstCard } from "./GstCard";
 import { OtherInfoCard } from "./OtherInfoCard";
 import { ProfileDetails } from "./ProfileDetails";
+import { PrivateRoute } from "./PrivateRoute";
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   GstCard,
   OtherInfoCard,
   ProfileDetails,
+  PrivateRoute,
 };

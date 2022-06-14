@@ -5,7 +5,7 @@ import { useAuth } from "../hooks/useAuth";
 const ProfileDetails = () => {
   let { userInfo, updateUserData, showEditSidebar, setShowEditSidebar } =
     useAuth();
-  console.log({ userInfo });
+
   const [address, setAddress] = useState(userInfo?.address || "");
   const [email, setEmail] = useState(userInfo?.email || "");
   const [username, setUsername] = useState(userInfo?.name || "");
@@ -45,7 +45,6 @@ const ProfileDetails = () => {
     if (showFields[type]) {
       fieldType = "state";
     }
-    console.log({ fieldType });
     setShowFields((prevState) => ({ ...prevState, [fieldType]: true }));
   };
 
