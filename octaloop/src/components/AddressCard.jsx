@@ -3,7 +3,6 @@ import { useAuth } from "../hooks/useAuth";
 
 const AddressCard = () => {
   let { userInfo } = useAuth();
-
   return (
     <div className="p-8 flex flex-col items-start bg-white rounded-2xl w-[90%] sm:w-[80%] md:w-[600px] space-y-6 shadow-md">
       <div className="flex flex-col items-start space-y-2 sm:space-y-0 sm:flex-row sm:items-center justify-between w-full">

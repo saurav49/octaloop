@@ -12,7 +12,7 @@ const Navbar = () => {
       <div>
         <h1 className="font-bold text-2xl">Binamite</h1>
       </div>
-      <ul className="flex items-center space-x-4 text-sm">
+      <ul className="flex items-center flex-wrap justify-center space-y-2 sm:space-y-0 space-x-4 text-sm">
         <li>Pricing</li>
         <li className="flex items-center space-x-1">
           <span>Who it's for</span>
@@ -31,10 +31,10 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="space-x-4 flex items-center text-sm">
-        <button className="py-2 px-4 rounded-xl bg-[#f5df4d] text-[#1a1a1a] font-bold">
+        <button className="py-2 px-4 rounded-xl bg-[#f5df4d] text-[#1a1a1a] font-bold cursor-not-allowed">
           Sign Up Free
         </button>
-        <button className="py-2 px-4 space-x-2 rounded-xl bg-[#f5df4d] text-[#1a1a1a] flex items-center font-bold">
+        <button className="py-2 px-4 space-x-2 rounded-xl bg-[#f5df4d] text-[#1a1a1a] flex items-center font-bold cursor-not-allowed">
           <span>Login</span>
           <IoMdArrowForward />
         </button>

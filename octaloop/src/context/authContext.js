@@ -38,6 +38,7 @@ export const AuthProvider = ({ children }) => {
           withCredentials: true,
         }
       );
+      localStorage.removeItem("octaloop__role");
       console.log({ response });
     } catch (err) {
       console.log({ err });

@@ -5,7 +5,6 @@ import { useAuth } from "../hooks/useAuth";
 const ProfileDetails = () => {
   let { userInfo, updateUserData, showEditSidebar, setShowEditSidebar } =
     useAuth();
-
   const [address, setAddress] = useState(userInfo?.address || "");
   const [email, setEmail] = useState(userInfo?.email || "");
   const [username, setUsername] = useState(userInfo?.name || "");
@@ -230,7 +229,17 @@ const ProfileDetails = () => {
         <hr className="text-[#f5f5f5] my-6" />
         <div className="flex items-center space-x-2 flex-wrap space-y-2 sm:space-y-0">
           <button
-            onClick={() => handleUpdateData(address, email, username, zipcode)}
+            onClick={() =>
+              handleUpdateData(
+                address,
+                email,
+                username,
+                zipcode,
+                state,
+                city,
+                country
+              )
+            }
             className="rounded-3xl flex items-center space-x-2 py-4 px-6 bg-[#1a1a1a] text-white font-semibold"
           >
             <BsArrowLeftShort className="font-xl" />

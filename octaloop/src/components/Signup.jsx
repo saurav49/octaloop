@@ -119,7 +119,7 @@ const Signup = () => {
           </span>
         </div>
         <div className="flex flex-col items-center space-y-6 w-full mt-4">
-          <button className="w-full bg-[#1a1a1a] rounded-2xl text-white py-4 px-2.5 font-semibold">
+          <button className="w-full bg-[#1a1a1a] rounded-2xl text-white py-4 px-2.5 font-semibold cursor-not-allowed">
             Create a account
           </button>
           <button
