@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
         "octaloop__role",
         JSON.stringify(response?.data?.role)
       );
+      alert("user logged in, you can navigate to `/` page ");
     } catch (err) {
       console.log({ err });
     }
